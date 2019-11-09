@@ -10,4 +10,10 @@ export class PairedElement extends HtmlElement {
   ) {
     super(tag, attributes)
   }
+
+  get html(): string {
+    const inner = this.innerNodes.map(node => node.html).join('')
+
+    return `<${this.tag}${this.attributesString}>${inner}</${this.tag}>`
+  }
 }
